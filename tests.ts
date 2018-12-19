@@ -27,33 +27,46 @@ class Person extends Animal {
         this.name = name;
     }
 
-    test(n: number): void;
-    test(s: string): void;
+    test(): number;
+    test(num: number): number;
+    test(txt: string): string;
+    test(a: number, b: number): number;
+    test(p: Person): number;
     @overload<Person>(Person.prototype.test2, [{type: ['string']}])
-    @overload<Person>('test3', ['number', 'number'])
-    test() {
+    @overload<Person>('testAdd', ['number', 'number'])
+    public test(): any {
         return 0;
     }
 
     @overloads<Person>('test', ['number'])
     @overloads<Person>('run', ['number'])
-    test1(num: number) {
+    private test1(num: number) {
         return num * num;
     }
 
-    test2(txt: string) {
+    private test2(txt: string) {
         return txt + 'test';
     }
 
-    test3(a: number, b: number) {
+    testAdd(a: number, b: number) {
         return a + b;
     }
 
     @overloads<Person>('test', [Person])
-    test4(p: Person) {
+    private test4(p: Person) {
         return p.test(3);
     }
 }
 
 
-var p = new Person('test');
+const p = new Person('test');
+let a = p.test();
+console.log('a', a, 0);
+let b = p.test(2);
+console.log('b', b, 4);
+let c = p.test('text');
+console.log('c', c, 'texttest');
+let d = p.test(3, 4);
+console.log('d', d, 7);
+let e = p.test(p);
+console.log('e', e, 9);
