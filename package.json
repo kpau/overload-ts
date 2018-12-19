@@ -1,0 +1,30 @@
+{
+  "name": "overload-ts",
+  "version": "1.0.0",
+  "description": "Easily add overloads for class methods in TypeScript.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kpau/overload-ts.git"
+  },
+  "keywords": [
+    "overload",
+    "ts",
+    "typescript",
+    "overloads",
+    "method",
+    "class"
+  ],
+  "author": "Kristiyan Nikolov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kpau/overload-ts/issues"
+  },
+  "homepage": "https://github.com/kpau/overload-ts",
+  "devDependencies": {
+    "typescript": "^3.1.6"
+  }
+}

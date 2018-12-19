@@ -1,4 +1,6 @@
-/// <reference path="main.ts" />
+/// <reference path="../src/main.ts" />
+/// <reference path="./assert.ts" />
+
 
 interface ISome {
     int: number;
@@ -32,7 +34,7 @@ class Person extends Animal {
     test(txt: string): string;
     test(a: number, b: number): number;
     test(p: Person): number;
-    @overload<Person>(Person.prototype.test2, [{type: ['string']}])
+    @overload<Person>(Person.prototype.test2, [{ type: ['string'] }])
     @overload<Person>('testAdd', ['number', 'number'])
     public test(): any {
         return 0;
@@ -61,12 +63,17 @@ class Person extends Animal {
 
 const p = new Person('test');
 let a = p.test();
-console.log('a', a, 0);
+assert.equal(a, 0, 'a');
+
 let b = p.test(2);
-console.log('b', b, 4);
+assert.equal(b, 4, 'b');
+
 let c = p.test('text');
-console.log('c', c, 'texttest');
+assert.equal(c, 'texttest', 'c');
+
 let d = p.test(3, 4);
-console.log('d', d, 7);
+assert.equal(d, 7, 'd');
+
 let e = p.test(p);
-console.log('e', e, 9);
+assert.equal(e, 9, 'e');
+

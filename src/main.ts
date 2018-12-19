@@ -1,5 +1,5 @@
 /// <reference path="types.ts" />
-/// <reference path="helpers.ts" />
+/// <reference path="checkers.ts" />
 
 const [overload, overloads] = (function () {
     function isFunction(fn: any): fn is Function {
