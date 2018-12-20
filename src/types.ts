@@ -1,20 +1,12 @@
 type TypeCheckerFn = (obj: any) => boolean;
 
-type TypeCheckerFnGeneric<T> = (obj: any) => obj is T;
-
 interface TypeVerifier {
     isType: TypeCheckerFn;
 }
 
-interface TypeVerifierGeneric<T> {
-    isType: TypeCheckerFnGeneric<T>;
-}
-
-type TypeVerifierExtend<T> = TypeVerifierGeneric<T> & T;
-
 type TypeOfValues = 'undefined' | 'object' | 'boolean' | 'number' | 'string' | 'symbol' | 'function';
 
-type TypeCheck = Function | TypeVerifier | TypeVerifierGeneric<any> | TypeOfValues | TypeCheckerFn | TypeCheckerFnGeneric<any>;
+type TypeCheck = Function | TypeVerifier | TypeOfValues | TypeCheckerFn;
 
 interface OverloadArg {
     type: TypeCheck[];
